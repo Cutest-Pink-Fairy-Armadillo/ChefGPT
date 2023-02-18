@@ -12,6 +12,13 @@ ul {
     justify-content: space-between;
 }
 
+.dragDropArea {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: -10%;
+}
+
 .fridgeBox {
     width: 400px;
     height: 800px;
@@ -82,3 +89,4 @@ ul {
         background-color: #339743;
     }
 }
+

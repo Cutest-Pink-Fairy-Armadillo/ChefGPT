@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Bowl = ({ setBowl, setFridge, setRecipe }) => {
+const Bowl = () => {
   // const bowlArray = [];
   // for (let i = 0; i < ingredients.length; i++) {
   //   bowlArray.push(
@@ -30,5 +30,3 @@ const Bowl = ({ setBowl, setFridge, setRecipe }) => {
     </div>
   );
 };
-
-export default Bowl;

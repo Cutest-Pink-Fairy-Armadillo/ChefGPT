@@ -24,13 +24,20 @@ const App = () => {
 
   useEffect(() => {
     setIng(ingredients);
+    setFridge(ingredients);
+    // setBowl(ingredients);
   });
 
   return (
     <div className="appBox">
       <Recipe recipe={recipe} />
-      <Bowl setBowl={setBowl} setFridge={setFridge} setRecipe={setRecipe} />
-      <Fridge ing={ing} setBowl={setBowl} setFridge={setFridge} />
+      <Fridge
+        ing={ing}
+        setBowl={setBowl}
+        setFridge={setFridge}
+        fridge={fridge}
+        bowl={bowl}
+      />
     </div>
   );
 };
