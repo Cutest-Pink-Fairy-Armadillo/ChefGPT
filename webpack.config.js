@@ -1,37 +1,37 @@
-const path = require('path');
-const HTMLWebpackPlugin = require('html-webpack-plugin');
+const path = require("path");
+const HTMLWebpackPlugin = require("html-webpack-plugin");
 // var PrettierPlugin = require("prettier-webpack-plugin");
 
 module.exports = {
-  entry: path.resolve(__dirname, './src/client/index.js'),
+  entry: path.resolve(__dirname, "./src/client/index.js"),
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         loader: "babel-loader",
-          options: {
-            presets: ["@babel/preset-env", "@babel/preset-react"],
-          },
+        options: {
+          presets: ["@babel/preset-env", "@babel/preset-react"],
+        },
       },
       {
-        test: /\.css$/i,
+        test: /\.s[ac]ss$/i,
         exclude: /(node_modules)/,
-        use: ['style-loader', 'css-loader'],
+        use: ["style-loader", "css-loader", "sass-loader"],
       },
       {
-        test: /\.png|svg|jpg|gif$/,
-        use: ['file-loader'],
+        test: /\.(png|jpe?g|gif)$/i,
+        use: ["file-loader"],
       },
     ],
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx'],
+    extensions: ["*", ".js", ".jsx"],
   },
   output: {
-    path: path.resolve(__dirname, './dist'),
-    publicPath: '/',
-    filename: 'bundle.js',
+    path: path.resolve(__dirname, "./dist"),
+    publicPath: "/",
+    filename: "bundle.js",
   },
   devServer: {
     proxy: {
@@ -39,12 +39,12 @@ module.exports = {
       "/build/**": "http://localhost:3000",
     },
     port: 8080,
-    static: path.resolve(__dirname, './dist'),
+    static: path.resolve(__dirname, "./dist"),
     historyApiFallback: true,
   },
   plugins: [
     new HTMLWebpackPlugin({
-        template: './src/index.html'
+      template: "./src/index.html",
     }),
     // new PrettierPlugin({
     //   printWidth: 80,               // Specify the length of line that the printer will wrap on.
