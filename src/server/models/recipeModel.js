@@ -9,7 +9,7 @@ const recipeSchema = new Schema({
     image_url: String,
     chatGPT_instructions: String
 });
-
+//
 const recipe = {
     "id": 716429,
     "title": "Pasta with Garlic, Scallions, Cauliflower & Breadcrumbs",
