@@ -3,20 +3,18 @@ import Bowl from "./components/bowl";
 import Fridge from "./components/fridge";
 import Recipe from "./components/recipe";
 import "./styles.scss";
-import { DndProvider, useDrag, useDrop } from "react-dnd";
-import { HTML5Backend } from "react-dnd-html5-backend";
 
 const ingredients = [
-  { id: 1, name: "eggs", url: "https://i.imgur.com/L7fa1qX.png" },
-  { id: 2, name: "milk", url: "https://i.imgur.com/7B85UY4.png" },
-  { id: 3, name: "salt", url: "https://i.imgur.com/Kulk6Le.png" },
+  { id: "1", name: "eggs", url: "https://i.imgur.com/L7fa1qX.png" },
+  { id: "2", name: "milk", url: "https://i.imgur.com/7B85UY4.png" },
+  { id: "3", name: "salt", url: "https://i.imgur.com/Kulk6Le.png" },
 ];
 
 const App = () => {
   const [recipe, setRecipe] = useState("");
-  const [ingInitial, setIng] = useState([]);
-  const [ingBowl, setIngBowl] = useState([]);
-  const [ingFridge, setIngFridge] = useState([]);
+  const [ing, setIng] = useState([]);
+  const [bowl, setBowl] = useState([]);
+  const [fridge, setFridge] = useState([]);
 
   //initially we get ingredients from user database
   //then we set the ingredientsFridge state using ingredients
@@ -31,16 +29,8 @@ const App = () => {
   return (
     <div className="appBox">
       <Recipe recipe={recipe} />
-      <Bowl
-        changeBowl={setIngBowl}
-        changeFridge={setIngFridge}
-        setRecipe={setRecipe}
-      />
-      <Fridge
-        initial={ingInitial}
-        changeBowl={setIngBowl}
-        changeFridge={setIngFridge}
-      />
+      <Bowl setBowl={setBowl} setFridge={setFridge} setRecipe={setRecipe} />
+      <Fridge ing={ing} setBowl={setBowl} setFridge={setFridge} />
     </div>
   );
 };
