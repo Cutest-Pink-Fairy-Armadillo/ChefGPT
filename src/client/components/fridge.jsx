@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 
-const Fridge = ({ initial, changeBowl, changeFridge }) => {
+const Fridge = ({ ing, setBowl, setFridge }) => {
   return (
     <div className="fridgeBox">
       Fridge
       <div className="fridgeingrediants">
-        {initial.map((ingredient) => (
+        {ing.map((ing) => (
           <img
-            key={ingredient.id}
+            key={ing.id}
+            src={ing.url}
+            alt={ing.name}
             className="IngredientImage"
-            src={ingredient.url}
-            alt={ingredient.name}
           ></img>
         ))}
       </div>
