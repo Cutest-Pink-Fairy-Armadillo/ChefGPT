@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Bowl from "./components/bowl";
+// import Bowl from "./components/bowl";
 import Fridge from "./components/fridge";
 import Recipe from "./components/recipe";
 import "./styles.scss";
@@ -12,7 +12,7 @@ const ingredients = [
 
 const App = () => {
   const [recipe, setRecipe] = useState("");
-  const [ing, setIng] = useState([]);
+  const [ingredientsList, setIng] = useState([]);
   const [bowl, setBowl] = useState([]);
   const [fridge, setFridge] = useState([]);
 
@@ -32,7 +32,7 @@ const App = () => {
     <div className="appBox">
       <Recipe recipe={recipe} />
       <Fridge
-        ing={ing}
+        ingredientsList={ingredientsList}
         setBowl={setBowl}
         setFridge={setFridge}
         fridge={fridge}
