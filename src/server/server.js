@@ -7,7 +7,8 @@ app.use(express.urlencoded({ extended: true }));
 
 
 
-
+app.post('/api/user', 
+)
 
 
 
