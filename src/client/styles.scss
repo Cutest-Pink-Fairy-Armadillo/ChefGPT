@@ -7,16 +7,21 @@ ul {
 }
 
 .appBox {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 200px;
+    // grid-template-columns: repeat(auto-fill, minmax(calc(min(100%/1, max(280px, 100%/5))), 1fr));
+
+    // display: flex;
+    // flex-direction: row;
+    // justify-content: space-around;
 }
 
 .dragDropArea {
+    grid-column: 2;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-left: -10%;
+    // flex-direction: row;
+    gap: 200px;
 }
 
 .fridgeBox {
@@ -25,6 +30,10 @@ ul {
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.562), 0 1px 1px rgba(0, 0, 0, 0.1);
     border-radius: 40px;
     position: relative;
+    ul {
+        width: 500px;
+        height: 900px;
+    }
 }
 
 .bowlBox {
@@ -34,9 +43,14 @@ ul {
     border-radius: 200px;
     align-self: center;
     position: relative;
+    ul {
+        width: 500px;
+        height: 500px;
+    }
 }
 
 .recipeBox {
+    grid-column: 1;
     width: 400px;
     height: 800px;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.562), 0 1px 1px rgba(0, 0, 0, 0.1);

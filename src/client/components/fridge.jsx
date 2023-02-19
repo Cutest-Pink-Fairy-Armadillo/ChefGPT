@@ -29,13 +29,13 @@ const Fridge = ({ ingredientsList, setBowl, setFridge, fridge, bowl }) => {
     return result;
   };
 
-  const drop_id_2_Array = {
+  const match_id_2_State = {
     fridgeDroppable: fridge,
     bowlDroppable: bowl
   };
 
-  function getList(id) {
-    return drop_id_2_Array[id];
+  const getState = (id) => {
+    return match_id_2_State[id];
   }
 
   const onDragEnd = (result) => {
@@ -49,7 +49,7 @@ const Fridge = ({ ingredientsList, setBowl, setFridge, fridge, bowl }) => {
     if (source.droppableId === destination.droppableId) {
       const items = reorder(
         // Grabs the fridge or bowl, whichever the item came from and was dropped back into
-        getList(source.droppableId),
+        getState(source.droppableId),
         source.index,
         destination.index
       );
@@ -65,8 +65,8 @@ const Fridge = ({ ingredientsList, setBowl, setFridge, fridge, bowl }) => {
     // if the item was moved outside of its container
     else {
       const result = move(
-        getList(source.droppableId),
-        getList(destination.droppableId),
+        getState(source.droppableId),
+        getState(destination.droppableId),
         source,
         destination
       );
@@ -176,29 +176,5 @@ const Fridge = ({ ingredientsList, setBowl, setFridge, fridge, bowl }) => {
     </div>
   );
 };
-
-
-
-// const Fridge = ({ initial, changeBowl, changeFridge }) => {
-//   return (
-//     <div className="fridgeBox">
-//       Fridge
-//       <div className="fridgeingrediants">
-//         {initial.map((ingredient) => (
-//           <img
-//             key={ingredient.id}
-//             className="IngredientImage"
-//             src={ingredient.url}
-//             alt={ingredient.name}
-//           ></img>
-//         ))}
-//       </div>
-//       <img
-//         className="fridgeBGImage"
-//         src="https://thumbs.dreamstime.com/b/inside-empty-refrigerator-fridge-clean-new-large-white-showing-shelves-draw-100504391.jpg"
-//       ></img>
-//     </div>
-//   );
-// };
 
 export default Fridge;
