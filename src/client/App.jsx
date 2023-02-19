@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Bowl from "./components/bowl";
 import Fridge from "./components/fridge";
 import Recipe from "./components/recipe";
 import "./styles.scss";

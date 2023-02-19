@@ -30,3 +30,5 @@ const Bowl = () => {
     </div>
   );
 };
+
+export default Bowl;
