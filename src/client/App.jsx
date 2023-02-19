@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Fridge from "./components/fridge";
 import Recipe from "./components/recipe";
 import "./styles.scss";
+import Login from "./components/login";
 
 const ingredients = [
   { id: "1", name: "eggs", url: "https://i.imgur.com/L7fa1qX.png" },
@@ -29,15 +30,20 @@ const App = () => {
   });
 
   return (
-    <div className="appBox">
-      <Recipe recipe={recipe} />
-      <Fridge
-        ingredientsList={ingredientsList}
-        setBowl={setBowl}
-        setFridge={setFridge}
-        fridge={fridge}
-        bowl={bowl}
-      />
+    <div>
+      <Login />
+      <br></br>
+      <br></br>
+      <div className="appBox">
+        <Recipe recipe={recipe} />
+        <Fridge
+          ingredientsList={ingredientsList}
+          setBowl={setBowl}
+          setFridge={setFridge}
+          fridge={fridge}
+          bowl={bowl}
+        />
+      </div>
     </div>
   );
 };
