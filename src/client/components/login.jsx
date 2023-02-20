@@ -4,7 +4,7 @@ import axios from "axios";
 
 function Login() {
   const [user, setUser] = useState([]);
-  const [profile, setProfile] = useState([]);
+  const [profile, setProfile] = useState();
 
   const login = useGoogleLogin({
     onSuccess: async (codeResponse) => {
@@ -55,7 +55,7 @@ function Login() {
           <button onClick={logOut}>Log out</button>
         </div>
       ) : (
-        <button onClick={() => login()}>Sign in with Google 🚀 </button>
+        <button onClick={() => login()}>Sign in with Google</button>
       )}
     </div>
   );
