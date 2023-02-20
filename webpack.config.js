@@ -36,7 +36,6 @@ module.exports = {
   devServer: {
     proxy: {
       "/api/**": "http://localhost:3000",
-      "/build/**": "http://localhost:3000",
     },
     port: 8080,
     static: path.resolve(__dirname, "./dist"),

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 
-const Fridge = ({ ingredientsList, setBowl, setFridge, fridge, bowl }) => {
+const Fridge = ({ genRecipeClick, setBowl, setFridge, fridge, bowl }) => {
   
   // a little function to help us with reordering the result
   const reorder = (arr, startIndex, endIndex) => {
@@ -18,7 +18,7 @@ const Fridge = ({ ingredientsList, setBowl, setFridge, fridge, bowl }) => {
   const move = (source, destination, droppableSource, droppableDestination) => {
     // const sourceClone = Array.from(source);
     // const destClone = Array.from(destination);
-    console.log("inside move function")
+    // console.log("inside move function")
     const [removed] = source.splice(droppableSource.index, 1);
     destination.splice(droppableDestination.index, 0, removed);
   
@@ -42,9 +42,7 @@ const Fridge = ({ ingredientsList, setBowl, setFridge, fridge, bowl }) => {
     const { source, destination } = result;
 
     // if dropped outside the list, just return
-    if (!destination) {
-      return;
-    }
+    if (!destination) return;
     // if the item moved stayed within its container
     if (source.droppableId === destination.droppableId) {
       const items = reorder(
@@ -55,12 +53,8 @@ const Fridge = ({ ingredientsList, setBowl, setFridge, fridge, bowl }) => {
       );
       // updating the state of the fridge/bowl
       // items === updated fridge/bowl array
-        if (source.droppableId === "fridgeDroppable") {
-          setFridge(items);
-        } else {
-          setBowl(items);
-        }
-
+        if (source.droppableId === "fridgeDroppable") setFridge(items);
+        else setBowl(items);
     }
     // if the item was moved outside of its container
     else {
@@ -78,12 +72,13 @@ const Fridge = ({ ingredientsList, setBowl, setFridge, fridge, bowl }) => {
   };
 
   return (
-    <div className="Kitchen">
+    
       <div className="dragDropArea">
-        <DragDropContext onDragEnd={onDragEnd}>
+        
+        <DragDropContext className="kitchen" onDragEnd={onDragEnd}>
+          
           {/* Bowl Start here -------------------------------------------------------*/}
           <div className="bowlBox">
-            Bowl
             <Droppable droppableId="bowlDroppable">
               {/* Provided argument includes info and references to code that the library needs to work properly */}
               {(provided) => (
@@ -123,8 +118,16 @@ const Fridge = ({ ingredientsList, setBowl, setFridge, fridge, bowl }) => {
             </Droppable>
             <img
               className="bowelBGImage"
-              src="http://ginaspriggs.guru/wp-content/uploads/2018/09/emptybowl-1024x853.jpg"
+              src="https://m.media-amazon.com/images/I/31MR7vLhOJL._AC_.jpg"
             ></img>
+            <button
+            className="genRecipeButton"
+            onClick={() => genRecipeClick()}
+            >
+            Generate new recipe!
+            </button>
+            
+
           </div>
           <div className="fridgeBox">
             {/* Fridge Start here --------------------------------------------------*/}
@@ -168,12 +171,12 @@ const Fridge = ({ ingredientsList, setBowl, setFridge, fridge, bowl }) => {
             </Droppable>
             <img
               className="fridgeBGImage"
-              src="https://thumbs.dreamstime.com/b/inside-empty-refrigerator-fridge-clean-new-large-white-showing-shelves-draw-100504391.jpg"
+              src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/12-fridge-interior-allan-swart.jpg"
             ></img>
           </div>
         </DragDropContext>
       </div>
-    </div>
+
   );
 };
 

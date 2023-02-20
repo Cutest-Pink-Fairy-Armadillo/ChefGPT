@@ -47,15 +47,16 @@ function Login() {
   };
 
   return (
-    <div>
+    <div className="profile-box">
+      <div className="logo-box"><img src="https://cdn.dealspotr.com/io-images/logo/chefgpt.jpg?aspect=center&snap=false&width=500&height=500" className="logo"></img></div>
       {profile ? (
         <div>
           <img src={profile.picture} alt="user image" />
-          <p>Name: {profile.name}</p>
+          <p>{profile.name}</p>
           <button onClick={logOut}>Log out</button>
         </div>
       ) : (
-        <button onClick={() => login()}>Sign in with Google</button>
+        <button onClick={() => login()} className="login-with-google-btn">Sign in with Google</button>
       )}
     </div>
   );
