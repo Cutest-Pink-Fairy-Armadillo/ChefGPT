@@ -12,7 +12,7 @@ mongoose
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      dbName: "pets",
+      dbName: "users",
     }
   )
   .then(() => console.log("Connected to Mongo DB."))
