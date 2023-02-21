@@ -254,6 +254,7 @@ body {
 .profile-box {
   display: flex;
   align-items: center;
+  z-index: 2;
 }
 
 .profile-box img {

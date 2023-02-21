@@ -3,9 +3,9 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const ingredientSchema = new Schema({
+  id: String,
   name: String,
-  id: Number,
-  image: String,
+  url: String,
 });
 
 const Ingredient = mongoose.model("ingredient", ingredientSchema);
