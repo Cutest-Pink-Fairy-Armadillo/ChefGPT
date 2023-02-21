@@ -26,7 +26,10 @@ const App = () => {
 
   const addIngredient = (event) => {
     event.preventDefault();
-    if (!userId) alert("LOG IN TO ADD INGREDIENTS");
+    if (!userId) {
+      alert("LOG IN TO ADD INGREDIENTS");
+      return;
+    }
     const inputIngredient = document.getElementById("ingredientInput").value;
     let ingredientMatch;
     for (const ingredient of ingredients) {
@@ -47,7 +50,10 @@ const App = () => {
 
   const deleteIngredient = (event) => {
     event.preventDefault();
-    if (!userId) alert("LOG IN TO DELETE INGREDIENTS");
+    if (!userId) {
+      alert("LOG IN TO DELETE INGREDIENTS");
+      return;
+    }
     const inputIngredient = document.getElementById("ingredientInput").value;
     let ingredientMatch;
     for (const ingredient of ingredients) {
