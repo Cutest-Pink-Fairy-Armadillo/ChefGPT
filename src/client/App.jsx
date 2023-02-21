@@ -18,8 +18,8 @@ const App = () => {
   //when button is clicked, onclick function sends the api call and sets the recipe state to the response
 
   useEffect(() => {
-    setIng(ingredients);
-    setFridge(ingredients);
+    // setIng(ingredients);
+    // setFridge(ingredients);
   });
 
   const genRecipeClick = () => {
@@ -85,7 +85,7 @@ const App = () => {
         ></img>
       </div>
       <div className="container">
-        <Login />
+        <Login setFridge={setFridge} />
       </div>
       <br></br>
       <div className="appBox">
