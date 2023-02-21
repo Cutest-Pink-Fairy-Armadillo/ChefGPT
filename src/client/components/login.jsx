@@ -2,19 +2,20 @@ import React, { useState, useEffect } from "react";
 import { googleLogout, useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
 
-const Login = ({ setFridge }) => {
+const Login = ({ setFridge, setLoggedIn, setUserId }) => {
   const [user, setUser] = useState([]);
   const [profile, setProfile] = useState();
 
   const login = useGoogleLogin({
     onSuccess: async (codeResponse) => {
       setUser(codeResponse);
-      console.log(codeResponse.authuser);
+      // console.log(codeResponse.authuser);
       try {
         const res = await axios.post("/api/user", {
           userId: codeResponse.authuser,
         });
-        console.log(res.data.userDoc.ingredients);
+        setUserId(codeResponse.authuser);
+        setLoggedIn(true);
         setFridge(res.data.userDoc.ingredients);
       } catch (err) {
         console.log(err);
@@ -46,7 +47,8 @@ const Login = ({ setFridge }) => {
   const logOut = () => {
     googleLogout();
     setProfile(null);
-    setFridge([]);
+    setLoggedIn(false);
+    setUserId(null);
   };
 
   return (

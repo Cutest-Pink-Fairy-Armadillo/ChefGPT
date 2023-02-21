@@ -1,7 +1,6 @@
 const axios = require("axios");
 const { Configuration, OpenAIApi } = require("openai");
 const User = require("../models/userModel");
-
 const configuration = new Configuration({
   apiKey: "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",
 });
@@ -129,28 +128,47 @@ controller.generateChef = async (req, res, next) => {
   res.locals.chef = await response.data.choices[0].text;
   console.log("this is returned from openai: ", res.locals.chef);
   next();
+};
 
-  // try {
-  //   const prompt = req.body; // Extract the string prompt from the request body
-  //   const response = await axios({
-  //     method: "post",
-  //     url: "https://api.openai.com/v1/engines/davinci-codex/completions",
-  //     headers: {
-  //       Authorization: `Bearer ${apiKey}`, // Replace with your OpenAI API key
-  //       "Content-Type": "application/json",
-  //     },
-  //     data: {
-  //       prompt: prompt,
-  //       max_tokens: 60, // Change this as needed
-  //       n: 1,
-  //       stop: "\n",
-  //     },
-  //   })
-  //   res.locals.chef = response.data.choices[0].text;
-  //   return next();
-  // } catch (error) {
-  //     return next(error);
-  //   };
+controller.addIngredient = async (req, res, next) => {
+  try {
+    const { userId, ingredient } = req.body;
+    const userDoc = await User.findOneAndUpdate(
+      { id: userId },
+      { $push: { ingredients: ingredient } },
+      { new: true }
+    );
+    res.json(userDoc);
+  } catch (error) {
+    return next(error);
+  }
+};
+
+controller.deleteIngredient = async (req, res, next) => {
+  try {
+    const { userId, ingredient } = req.body;
+    const userDoc = await User.findOne({ id: userId });
+    let index = -1;
+    for (let i = 0; i < userDoc.ingredients.length; i++) {
+      if (userDoc.ingredients[i].name === ingredient.name) {
+        index = i;
+        break;
+      }
+    }
+    console.log(
+      "This is the ingredient to be removed from the user: ",
+      ingredient
+    );
+    console.log(
+      "This is the index of the ingredient to be removed from the user: ",
+      index
+    );
+    userDoc.ingredients.splice(index, 1);
+    await userDoc.save();
+    res.json(userDoc);
+  } catch (error) {
+    return next(error);
+  }
 };
 
 module.exports = controller;

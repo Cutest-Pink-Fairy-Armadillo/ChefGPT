@@ -1,7 +1,3 @@
-// * {
-//  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.562), 0 1px 1px rgba(0, 0, 0, 0.1);
-// }
-
 body {
   background-image: url(https://img.freepik.com/free-photo/marble-product-backdrop-showcase_53876-133280.jpg?t=st=1676913882~exp=1676914482~hmac=2b360c25967f4350dcbc59985626a0b8c9d1e738a84a5aa73dfb1e2933ab28ab);
   background-repeat: no-repeat;
@@ -12,16 +8,41 @@ body {
   width: 100%;
   text-align: center;
   padding-top: 2rem;
+  padding-left: 3rem;
 }
 
 .logo {
   width: 140px;
-  // height: 140px;
   border-radius: 50px;
   position: absolute;
-  // clip: rect(45px, 1000px, 97px, 0px);
   bottom: 20px;
   left: 10px;
+}
+
+.form {
+  position: absolute;
+  margin-right: 60px;
+}
+
+.form input {
+  border: 2px solid #111;
+  padding: 10px;
+  border-radius: 8px;
+  margin: 10px;
+}
+
+.addBtn,
+.deleteBtn {
+  background-color: #e6f6d0;
+  border: 2px solid #111;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #111;
+  cursor: pointer;
+  font-family: sans-serif;
+  font-size: 14px;
+  padding: 10px;
+  margin: 10px;
 }
 
 .logo-box {
@@ -41,6 +62,13 @@ ul {
   flex-wrap: wrap;
 }
 
+p {
+  margin-top: 2px;
+  margin-bottom: 2px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
 body {
   overflow: hidden;
 }
@@ -49,54 +77,40 @@ body {
 }
 
 .appBox {
-  // padding-left: 5%;
-  // display: grid;
-  // grid-template-columns: auto / repeat(3, 1fr);
-  // grid-template-areas: "recipeBox dragDropArea dragDropArea";
   display: flex;
   overflow: hidden;
   top: 50px;
   position: relative;
   justify-content: center;
-  // gap: 1%;
 }
 
-// .kitchen {
-//     display: flex;
-//     justify-content: space-between;
-
-// }
-
 .dragDropArea {
-  // display: grid;
-  // grid-template-columns: auto / repeat(2);
-  // grid-column: 2;
   display: flex;
   justify-content: space-evenly;
-  // gap: 5%;
-  // height: 65%;
   flex-grow: 1;
 }
 
 .fridgeBox {
   width: 400px;
   height: 800px;
-  // box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.562), 0 1px 1px rgba(0, 0, 0, 0.1);
   border-radius: 40px;
   position: relative;
+  box-shadow: 15px 15px 30px rgba(0, 0, 1, 0.44),
+    0 10px 10px rgba(0, 0, 3, 0.25);
+
   ul {
     width: 370px;
-    height: 630px;
+    height: 730px;
   }
 }
 
 .bowlBox {
-  width: 500px;
-  height: 500px;
-  // box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.562), 0 1px 1px rgba(0, 0, 0, 0.1);
-  border-radius: 200px;
+  width: 550px;
+  height: 550px;
+  border-radius: 275px;
   align-self: center;
   position: relative;
+  box-shadow: 0 0 50px rgba(0, 0, 1, 0.44), 0 50px 10px rgba(0, 0, 3, 0.25);
   ul {
     border-radius: 250;
     width: 440px;
@@ -119,8 +133,7 @@ body {
 .recipeBox {
   grid-column: 1;
   width: 500px;
-  height: 700px;
-  // box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.562), 0 1px 1px rgba(0, 0, 0, 0.1);
+  height: 800px;
   border-radius: 40px;
   background-image: url("https://cdn.pixabay.com/photo/2013/07/12/14/42/education-148605__340.png");
   background-repeat: no-repeat;
@@ -135,7 +148,7 @@ body {
 
 .fridgeBGImage {
   width: 400px;
-  height: 700px;
+  height: 800px;
   border-radius: 40px;
   z-index: -1;
   position: absolute;
@@ -144,8 +157,8 @@ body {
 }
 
 .bowelBGImage {
-  width: 500px;
-  height: 500px;
+  width: 550px;
+  height: 550px;
   border-radius: 250px;
   z-index: -1;
   position: absolute;
@@ -161,7 +174,7 @@ body {
   box-sizing: border-box;
   color: #111;
   cursor: pointer;
-  font-family: Inter, sans-serif;
+  font-family: sans-serif;
   font-size: 16px;
   height: 48px;
   justify-content: center;
@@ -174,6 +187,7 @@ body {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  margin-top: 75px;
 }
 
 .genRecipeButton:after {
@@ -263,4 +277,11 @@ body {
 
 .profile-box p {
   margin: 0 10px 0 0;
+}
+
+.recipe-text {
+  width: 390px;
+  padding-left: 105px;
+  font-size: 19px;
+  padding-top: 18px;
 }
