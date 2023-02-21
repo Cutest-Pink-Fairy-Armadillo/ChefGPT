@@ -78,9 +78,16 @@ const App = () => {
 
   return (
     <div>
-      <Login />
+      <div className="logo-box">
+        <img
+          src="https://cdn.dealspotr.com/io-images/logo/chefgpt.jpg?aspect=center&snap=false&width=500&height=200"
+          className="logo"
+        ></img>
+      </div>
+      <div className="container">
+        <Login />
+      </div>
       <br></br>
-      {/* <div className="logo-box"><img src="https://cdn.dealspotr.com/io-images/logo/chefgpt.jpg?aspect=center&snap=false&width=500&height=500" className="logo"></img></div> */}
       <div className="appBox">
         <Recipe recipe={recipe} />
         <Fridge
