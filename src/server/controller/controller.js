@@ -29,6 +29,8 @@ controller.generateChef = async (req, res, next) => {
     model: "text-davinci-003", 
     prompt: req.body.prompt, 
     temperature: 0,
+    max_tokens: 500
+
   });
   res.locals.chef = await response.data.choices[0].text;
   console.log("this is returned from openai: ", res.locals.chef);
